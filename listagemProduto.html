@@ -26,8 +26,11 @@
             lista.innerHTML = tarefas.map(produto => `
                 <div class="list-group-item">    
                     <div class=" justify-content-between">
-                        <h5>${produto.titulo}</h5>
+                        <h5>${produto.nome}</h5>
+                        <p class="mb-1">${produto.lote}</p>
                         <p class="mb-1">${produto.descricao || 'Sem descrição'}</p>
+                        <p class="mb-1">${produto.pH}</p>
+                        <p class="mb-1">${produto.concentracao}</p>
                         <small>${produto.concluida ? '✅ Concluída' : '🟡 Pendente'}</small>
                     </div>
                 </div>
