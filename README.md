@@ -4,6 +4,9 @@ Projeto Integrador do Curso de Técnico de Desenvolvimento de Softwares  (Ativid
 ## Objetivo do Software
 
 ## Funcionalidades do sistema (requisitos)
+- **Cadastramentos de produtos e seus laudos.**
+- **Cadastramentos de matérias primas e seus laudos.**
+- **Sistema tipo Web: O software necessitará de interface com um sistema de banco de dados, para tal o software precisará estar conectado a internet para que os dados possam ser acessados, alterados ou mesmo filtrados.**
 
 ## Título do Projeto
 Projeto Integrador Indústria Química
