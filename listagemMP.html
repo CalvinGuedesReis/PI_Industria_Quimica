@@ -19,11 +19,11 @@
     </div>
 
     <script>
-        fetch("file:///C:/Users/calvi/Desktop/PI%20Industria%20Quimica/listagemMP.html")
+        fetch("http://localhost:3000/materiaPrima")
         .then(response => response.json())
-        .then(tarefas => {
+        .then(materiaPrima => {
             const lista = document.getElementById("materiaPrima");
-            lista.innerHTML = tarefas.map(materiaPrima => `
+            lista.innerHTML = materiaPrima.map(materiaPrima => `
                 <div class="list-group-item">    
                     <div class=" justify-content-between">
                         <h5>${materiaPrima.nomeMP}</h5>

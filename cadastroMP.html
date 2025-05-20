@@ -55,15 +55,15 @@
             e.preventDefault();
 
             const materiaPrima = {
-                nome: document.getElementById("nomeMP").value,
-                lote: document.getElementById("loteMP").value,
-                descricao: document.getElementById("descricaoMP").value,
-                pH: document.getElementById("pHMP").value,
-                concentracao: document.getElementById("concentracaoMP").value,
+                nomeMP: document.getElementById("nomeMP").value,
+                loteMP: document.getElementById("loteMP").value,
+                descricaoMP: document.getElementById("descricaoMP").value,
+                pHMP: document.getElementById("pHMP").value,
+                concentracaoMP: document.getElementById("concentracaoMP").value,
                 concluida: document.getElementById("concluida").checked
             };
 
-            fetch("file:///C:/Users/calvi/Desktop/PI%20Industria%20Quimica/cadastroMP.html", {
+            fetch("http://localhost:3000/materiaPrima", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

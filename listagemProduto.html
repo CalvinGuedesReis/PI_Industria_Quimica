@@ -19,7 +19,7 @@
     </div>
 
     <script>
-        fetch("file:///C:/Users/calvi/Desktop/PI%20Industria%20Quimica/listagemProduto.html")
+        fetch("http://localhost:3000/produto")
         .then(response => response.json())
         .then(tarefas => {
             const lista = document.getElementById("produto");

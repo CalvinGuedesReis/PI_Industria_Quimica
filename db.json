@@ -1,5 +1,5 @@
 {
-    "PI Industria Quimica": [
+  "produto": [
     {
       "nome": "Tensoativo 01",
       "descricao": "Produto para a higienização das mãos",
@@ -7,6 +7,43 @@
       "concentracao": "28.0%-30.0%",
       "concluida": true,
       "id": 1
+    },
+    {
+      "nome": "Engraxante 01",
+      "lote": "01/2025",
+      "descricao": "",
+      "pH": "6.5-7.5",
+      "concentracao": "38.0%-40.0%",
+      "concluida": true,
+      "id": 2
     }
-    ]
+  ],
+  "materiaPrima": [
+    {
+      "nomeMP": "Lauril éter sulfato de sódio",
+      "descricaoMP": "Tensoativo aniônico",
+      "pHMP": "6.0-8.0",
+      "concentracaoMP": "69.0%-71.0%",
+      "concluida": true,
+      "id": 2
+    },
+    {
+      "nomeMP": "Lecitina de Soja",
+      "loteMP": "02/2025",
+      "descricaoMP": "Produto obtido a partir da soja",
+      "pHMP": "6.5-7.5",
+      "concentracaoMP": "99.0%-100%",
+      "concluida": true,
+      "id": 3
+    },
+    {
+      "nomeMP": "BHT",
+      "loteMP": "03/2025",
+      "descricaoMP": "Antioxidante",
+      "pHMP": "10.0-12.0",
+      "concentracaoMP": "99.0%-100%",
+      "concluida": true,
+      "id": 4
+    }
+  ]
 }
