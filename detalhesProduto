@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes de Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Informações sobre os produtos</h3>
+            <a href="/lista_produto" class="btn btn-primary">Ver Produtos</a>
+        </div>
+
+        <p>ID: <span id="id"></span></p>
+        <p>Nome: <span id="nome"></span></p>
+        <p>Lote: <span id="lote"></span></p>
+        <p>Descrição: <span id="descricao"></span></p>
+        <p>pH: <span id="pH"></span></p>
+        <p>Concentração: <span id="concentracao"></span></p>
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Notas e avaliações</h3>
+        </div>
+     
+    </div>
+    <script>
+        // Pega o ID da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+
+        // Carrega os dados do filme
+        fetch(`http://localhost:8080/api/produto/${id}`)
+        .then(response => response.json())
+        .then(produto => {
+            document.getElementById('id').innerHTML = produto.id;
+            document.getElementById('nome').innerHTML = produto.nome ;
+            document.getElementById('lote').innerHTML = produto.lote;
+            document.getElementById('descricao').innerHTML = produto.descricao;
+            document.getElementById('pH').innerHTML = produto.pH;
+            document.getElementById('concentracao').innerHTML = produto.concentracao;
+
+            //if (filme.capa) {
+                //document.getElementById('capa').innerHTML= `<img id="capa" src="${filme.capa}" height="200">`;
+            //}
+        })
+        .catch(error => console.error("Erro ao carregar produto:", error));
+
+
+        
+    </script>
+</body>
+</html>
