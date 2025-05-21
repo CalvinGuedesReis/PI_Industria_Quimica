@@ -31,7 +31,7 @@
         const id = urlParams.get('id');
 
         // Carrega os dados do filme
-        fetch(`http://localhost:8080/api/produto/${id}`)
+        fetch(`http://localhost:8080/api/materia_prima/${id}`)
         .then(response => response.json())
         .then(materia_prima => {
             document.getElementById('id').innerHTML = materia_prima.id;
