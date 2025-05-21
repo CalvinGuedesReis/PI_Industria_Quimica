@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Cadastrar Novo Produto</h3>
+            <a href="lista_produto" class="btn btn-primary">Ver Produtos</a>
+            <a href="/" class="btn btn-primary">Início</a>
+        </div>
+
+        <form id="formProduto">
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input class="form-control" type="text" id="nome" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Lote</label>
+                <input class="form-control" type="text" id="lote" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricao" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">pH</label>
+                <input class="form-control" id="pH">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Concentração</label>
+                <input class="form-control" id="concentracao">
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" id="concluida" class="form-check-input">
+                <label class="form-check-label">Concluída</label>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Salvar Produto</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("formProduto").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const produto = {
+                nome: document.getElementById("nome").value,
+                lote: document.getElementById("lote").value,
+                descricao: document.getElementById("descricao").value,
+                pH: document.getElementById("pH").value,
+                concentracao: document.getElementById("concentracao").value,
+                concluida: document.getElementById("concluida").checked
+            };
+
+            fetch("http://localhost:8080/api/produto", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(produto)
+            })
+            .then(function(response) {
+                if (!response.ok) throw new Error("Erro na requisição");
+                return response.json();
+            })
+            .then(function() {
+                alert("Produto criado com sucesso!");
+                document.getElementById("formProduto").reset();
+            })
+            .catch(function(error) {
+                console.error("Error: ", error);
+                alert("Erro ao criar produto");
+            });
+        });
+    </script>
+</body>
+</html>

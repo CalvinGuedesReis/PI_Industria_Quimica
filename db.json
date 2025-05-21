@@ -16,6 +16,15 @@
       "concentracao": "38.0%-40.0%",
       "concluida": true,
       "id": 2
+    },
+    {
+      "nome": "Engraxante 01",
+      "lote": "01/2025",
+      "descricao": "",
+      "pH": "6.0-8.0",
+      "concentracao": "28.0%-30.0%",
+      "concluida": false,
+      "id": 3
     }
   ],
   "materiaPrima": [
@@ -44,6 +53,15 @@
       "concentracaoMP": "99.0%-100%",
       "concluida": true,
       "id": 4
+    },
+    {
+      "nomeMP": "Farinha",
+      "loteMP": "03/2025",
+      "descricaoMP": "",
+      "pHMP": "6.0-7.5",
+      "concentracaoMP": "86.5-90.0%",
+      "concluida": false,
+      "id": 5
     }
   ]
 }

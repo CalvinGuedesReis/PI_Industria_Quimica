@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Matéria Prima</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Cadastrar Nova Matéria Prima</h3>
+            <a href="/lista_mp" class="btn btn-primary">Ver Matérias Primas</a>
+            <a href="/" class="btn btn-primary">Início</a>
+        </div>
+
+        <form id="formMP">
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input class="form-control" type="text" id="nomeMP" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Lote</label>
+                <input class="form-control" type="text" id="loteMP" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricaoMP" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">pH</label>
+                <input class="form-control" type="text" id="pHMP">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Concentração</label>
+                <input class="form-control" id="concentracaoMP">
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" id="concluida" class="form-check-input">
+                <label class="form-check-label">Concluída</label>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Salvar Matéria Prima</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("formMP").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const materiaPrima = {
+                nomeMP: document.getElementById("nomeMP").value,
+                loteMP: document.getElementById("loteMP").value,
+                descricaoMP: document.getElementById("descricaoMP").value,
+                pHMP: document.getElementById("pHMP").value,
+                concentracaoMP: document.getElementById("concentracaoMP").value,
+                concluida: document.getElementById("concluida").checked
+            };
+
+            fetch("http://localhost:8080/api/materia_prima", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(materiaPrima)
+            })
+            .then(function(response) {
+                if (!response.ok) throw new Error("Erro na requisição");
+                return response.json();
+            })
+            .then(function() {
+                alert("Matéria prima criada com sucesso!");
+                document.getElementById("formMP").reset();
+            })
+            .catch(function(error) {
+                console.error("Error: ", error);
+                alert("Erro ao criar matéria prima");
+            });
+        });
+    </script>
+</body>
+</html>

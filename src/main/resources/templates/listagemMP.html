@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Matérias Primas</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Lista de Matérias Primas</h3>
+            <a href="/cadastro_mp" class="btn btn-primary">Nova Matéria Prima</a>
+            <a href="/" class="btn btn-primary">Início</a>
+        </div>
+    
+
+        <div id="materiaPrima" class="list-group"></div>
+    </div>
+
+    <script>
+        fetch("http://localhost:8080/api/materia_prima")
+        .then(response => response.json())
+        .then(materiaPrima => {
+            const lista = document.getElementById("materiaPrima");
+            lista.innerHTML = materiaPrima.map(materiaPrima => `
+                <div class="list-group-item">    
+                    <div class=" justify-content-between">
+                        <h5>${materiaPrima.nomeMP}</h5>
+                        <p class="mb-1">${materiaPrima.loteMP}</p>
+                        <p class="mb-1">${materiaPrima.descricaoMP || 'Sem descrição'}</p>
+                        <p class="mb-1">${materiaPrima.pHMP}</p>
+                        <p class="mb-1">${materiaPrima.concentracaoMP}</p>
+                        <small>${materiaPrima.concluida ? '✅ Concluída' : '🟡 Pendente'}</small>
+                    </div>
+                </div>
+                
+            `).join("");
+        })
+        .catch(error => console.error("Erro:", error));
+    </script>
+
+</body>
+</html>
